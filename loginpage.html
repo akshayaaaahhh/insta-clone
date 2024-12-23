@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 350px;
+            width: 100%;
+            background: #fff;
+            border: 1px solid #dbdbdb;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 175px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            background: #fafafa;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #a8a8a8;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #0095f6;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn:disabled {
+            background-color: #b2dffc;
+        }
+
+        .separator {
+            margin: 20px 0;
+            position: relative;
+            font-size: 12px;
+            color: #8e8e8e;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            display: block;
+            height: 1px;
+            background: #dbdbdb;
+            position: absolute;
+            top: 50%;
+            width: 40%;
+        }
+
+        .separator::before {
+            left: 0;
+        }
+
+        .separator::after {
+            right: 0;
+        }
+
+        .forgot-password {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .forgot-password a {
+            color: #00376b;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Instagram">
+        </div>
+        <form id="loginForm">
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Phone number, username, or email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn" id="loginButton" disabled>Log In</button>
+        </form>
+        <div class="separator">OR</div>
+        <button class="btn" style="background-color: #385185; margin-bottom: 10px;">Log in with Facebook</button>
+        <div class="forgot-password">
+            <a href="#">Forgot password?</a>
+        </div>
+    </div>
+
+    <script>
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginButton = document.getElementById('loginButton');
+
+        function validateForm() {
+            loginButton.disabled = !usernameInput.value.trim() || !passwordInput.value.trim();
+        }
+
+        usernameInput.addEventListener('input', validateForm);
+        passwordInput.addEventListener('input', validateForm);
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Logging in...');
+        });
+    </script>
+</body>
+</html>
